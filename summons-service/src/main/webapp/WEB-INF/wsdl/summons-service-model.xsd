@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:model="http://vksn.io/summons/entity/" xmlns:tns="http://vksn.io/summons/summonsService/model/" targetNamespace="http://vksn.io/summons/summonsService/model/">
+	<xs:import namespace="http://vksn.io/summons/entity/" schemaLocation="summons-model.xsd"/>
+
+	<xs:element name="listInvitations" type="xs:long"/>
+
+
+	<xs:element name="listInvitationsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="invitations" type="model:Invitation"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="addInvitation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="invitation" type="model:Invitation"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="addInvitationResponse"/>
+
+	<xs:element name="createEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Event" type="model:Event"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="createEventResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Event" type="model:Event"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

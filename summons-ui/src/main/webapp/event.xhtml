@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="WEB-INF/facets/managementLayout.xhtml">
+	<ui:define name="body">
+		<f:metadata>
+			<f:viewParam name="eventId" value="#{viewEvent.eventId}" />
+			<f:viewAction action="#{viewEvent.loadEvent}" />
+		</f:metadata>
+		<div class="wrapper">
+			<label for="event.sign">Tapahtuman nimi</label>
+			<p id="event.name">#{viewEvent.event.name}</p>
+			<label for="event.sign">Tapahtuman tunnus</label>
+			<p id="event.sign">#{viewEvent.event.sign}</p>
+			<label for="event.date">Tapahtuman päivämäärä</label>
+			<h:outputText id="event_date" value="#{viewEvent.event.date}">
+				<f:convertDateTime pattern="dd.MM.yyyy" />
+			</h:outputText>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

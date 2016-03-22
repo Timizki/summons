@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://vksn.io/summons/entity/" targetNamespace="http://vksn.io/summons/entity/">
+
+	<xs:element name="Person" type="tns:Person"/>
+	<xs:element name="invitation" type="tns:Invitation"/>
+	<xs:element name="Event" type="tns:Event"/>
+	<xs:element name="Account" type="tns:Account"/>
+	<xs:complexType name="Account">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element minOccurs="1" name="token" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Person">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element default="NOT_RESPONSED" name="participate" type="tns:Participate"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="contactInfo" type="tns:ContactInformation"/>
+			<xs:element name="firstName" type="xs:string"/>
+			<xs:element name="lastName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContactInformation">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element minOccurs="1" name="contactInfo" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Participate">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PARTICIPATES"/>
+			<xs:enumeration value="WONT_PARTICIPATE"/>
+			<xs:enumeration value="NOT_RESPONSED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="gender">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MALE"/>
+			<xs:enumeration value="FEMALE"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="Invitation">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="token">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="coverLetter" type="tns:CoverLetter"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="persons" type="tns:Person"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CoverLetter">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="content" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Event">
+		<xs:sequence>
+			<xs:element name="sign" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="date" type="xs:date"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="choosedPlace" type="tns:Place"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="suggestedPlaces" type="tns:Place"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="invitations" type="tns:Invitation"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Place">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="address" type="tns:Address"/>
+			<xs:element name="drivingInstructions" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Address">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="street" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="altitude" type="xs:string"/>
+			<xs:element name="longitude" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

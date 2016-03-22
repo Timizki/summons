@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC
+	"-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN"
+	"http://java.sun.com/dtd/application_1_3.dtd">
+<application>
+  <display-name>summons-ear</display-name>
+  <module>
+    <web>
+      <web-uri>summons-service-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>/summons-service</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>summons-ui-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>/summons-ui</context-root>
+    </web>
+  </module>
+  <security-role>
+    <role-name>PARTICIPANT</role-name>
+  </security-role>
+</application>

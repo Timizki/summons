@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://vksn.io/summons/summonsService/model/"
+	xmlns:tns="http://vksn.io/summons/summonsService/model/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:model="http://vksn.io/summons/entity/">
+	<xs:import schemaLocation="summons-model.xsd" namespace="http://vksn.io/summons/entity/" />
+
+	<xs:element name="listInvitations" type="xs:long" />
+	<xs:element name="fetchEvent" type="xs:long" />
+	<xs:element name="fetchEventResponse" type="model:Event" />
+
+	<xs:element name="getSessionStartTime">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getSessionStartTimeResponse" type="xs:dateTime"/>
+
+	<xs:element name="listEvents">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="listInvitationsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="invitations" type="model:Invitation"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="listEventsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="events" type="model:Event" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="addInvitation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="invitation" type="model:Invitation" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="addInvitationResponse" />
+
+	<xs:element name="createEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Event" type="model:Event" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="createEventResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Event" type="model:Event" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

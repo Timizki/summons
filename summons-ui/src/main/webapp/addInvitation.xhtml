@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="WEB-INF/facets/managementLayout.xhtml">
+	<ui:define name="body">
+	<form jsf:id="eventForm">
+		<div jsf:id="invitations" class="invitations">
+			<h:messages style="color:red;margin:8px;" />
+			<ui:repeat var="invitation" varStatus="is"
+				value="#{createEvent.event.invitations}">
+				<div class="invitation">
+					Kutsu #{is.index+1} <br /> Kirjautumistunnus:<input type="text"
+						jsf:value="#{invitation.token}" />
+					<div class="invitation_persons" jsf:id="invitation_persons">
+						<ui:repeat var="person" value="#{invitation.persons}"
+							varStatus="ps">
+							<div class="person" jsf:id="invitation_person">
+								<div class="column">
+									Etunimi:<br /> <input type="text"
+										jsf:value="#{person.firstName}" />
+								</div>
+								<div class="column">
+									Sukunimi:<br /> <input type="text"
+										jsf:value="#{person.lastName}" /> <input type="hidden"
+										jsf:id="person_id" jsf:value="#{person.id}" />
+								</div>
+								<div class="column">
+									<p jsf:id="deleteUser" class="deleteUser">
+										<f:ajax event="click" execute="invitation_person"
+											render="@form"
+											listener="#{createEvent.deletePerson(invitation, person)}" />
+									</p>
+								</div>
+							</div>
+							<div class="clear" />
+						</ui:repeat>
+					</div>
+					<p></p>
+					<p jsf:id="addUser" class="addUser">
+						<f:ajax event="click" execute="invitation_persons"
+							render="invitation_persons"
+							listener="#{createEvent.addPerson(invitation)}" />
+					</p>
+
+				</div>
+			</ui:repeat>
+			<p jsf:id="addInvitation" class="addInvitation">
+				<f:ajax event="click" execute="@form" render="invitations"
+					listener="#{createEvent.addInvitation}" />
+			</p>
+		</div>
+		<button id="button.event.next"
+			jsf:action="#{createEvent.moveToSeatingPlanCreation}">Lisää
+			istumajärjestys</button>
+		<button id="button.event.save" jsf:action="#{createEvent.save}">Luo
+			tapahtuma</button>
+	</form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<head jsf:id="head">
+<title>Events</title>
+<link rel="stylesheet" href="resources/css/management.css" />
+<ui:insert name="head">
+	<ui:insert name="head" />
+</ui:insert>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="menu">
+			logged: <h:outputText value="#{loginTime.time}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm" /></h:outputText>
+			<ul>
+				<li><a href="createEvent.xhtml">New event</a></li>
+				<li><a href="listEvents">List events</a></li>
+				<li><a href="exit.xhtml">Logout</a></li>
+			</ul>
+		</div>
+		<div id="body">
+			<ui:insert name="body">
+				<ui:insert name="body" />
+			</ui:insert>
+		</div>
+	</div>
+</body>
+</html>

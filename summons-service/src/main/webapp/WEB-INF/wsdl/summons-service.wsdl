@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<wsdl:definitions xmlns="http://vksn.io/summons/summonsService/" xmlns:serviceModel="http://vksn.io/summons/summonsService/model/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://vksn.io/summons/summonsService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vksn.io/summons/summonsService/">
+
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://vksn.io/summons/summonsService/model/" schemaLocation="summons-service-model.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="listInvitations">
+		<wsdl:part element="serviceModel:listInvitations" name="listInvitations"/>
+	</wsdl:message>
+
+	<wsdl:message name="listInvitationsResponse">
+		<wsdl:part element="serviceModel:listInvitationsResponse" name="listInvitationsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="createEvent">
+		<wsdl:part element="serviceModel:createEvent" name="createEvent"/>
+	</wsdl:message>
+
+	<wsdl:message name="createEventResponse">
+		<wsdl:part element="serviceModel:createEventResponse" name="crateEventResponse"/>
+	</wsdl:message>
+
+	<wsdl:binding name="SummonsServiceSOAPBinding" type="SummonsServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listInvitations">
+<!-- 			<soap:operation -->
+<!-- 				soapAction="http://summons.vksn.io/summons/summonsService#listInvitations" /> -->
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="createEvent">
+<!-- 			<soap:operation -->
+<!-- 				soapAction="http://summons.vksn.io/summons/summonsService#createEvent" /> -->
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:portType name="SummonsServicePort">
+		<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+			<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+		</jaxws:bindings>
+		<wsdl:operation name="listInvitations">
+			<wsdl:input message="listInvitations"/>
+			<wsdl:output message="listInvitationsResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="createEvent">
+			<wsdl:input message="createEvent"/>
+			<wsdl:output message="createEventResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:service name="SummonsService">
+		<wsdl:port binding="SummonsServiceSOAPBinding" name="SummonsService">
+			<soap:address location="http://localhost:9080/summons-service/SummonsService"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<head jsf:id="head">
+<title>Login</title>
+<h:outputStylesheet library="css" name="main.css" />
+</head>
+<body>
+	<div class="wrapper">
+		<div class="center_with_border">
+			<div class="center">
+				<div class="content">
+					<p>Olet ilmoittamassa kutsun
+						<b>#{applicationStateBean.current.invitationCode}</b> henkilöitä</p>
+					<form jsf:id="participateForm">
+						<table class="center">
+							<tr>
+								<td>Nimi</td>
+								<td>Status</td>
+							</tr>
+							<ui:repeat var="person"
+								value="#{applicationStateBean.current.persons}">
+								<tr>
+									<td>#{person.firstname} #{person.lastname}</td>
+									<td><h:selectOneMenu value="#{person.participating}">
+											<f:selectItems value="#{participateBean.participateValues}" />
+										</h:selectOneMenu></td>
+								</tr>
+							</ui:repeat>
+						</table>
+						<button jsf:action="#{participateBean.save}">Tallenna</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

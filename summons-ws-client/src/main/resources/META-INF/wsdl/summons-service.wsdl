@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<wsdl:definitions xmlns="http://vksn.io/summons/summonsService/" xmlns:serviceModel="http://vksn.io/summons/summonsService/model/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://vksn.io/summons/summonsService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vksn.io/summons/summonsService/">
+
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://vksn.io/summons/summonsService/model/" schemaLocation="summons-service-model.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="listInvitations">
+		<wsdl:part element="serviceModel:listInvitations" name="listInvitations"/>
+	</wsdl:message>
+	<wsdl:message name="listInvitationsResponse">
+		<wsdl:part element="serviceModel:listInvitationsResponse" name="listInvitationsResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="listEvents">
+		<wsdl:part element="serviceModel:listEvents" name="listEvents"/>
+	</wsdl:message>
+	<wsdl:message name="listEventsResponse">
+		<wsdl:part element="serviceModel:listEventsResponse" name="listEventsResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="createEvent">
+		<wsdl:part element="serviceModel:createEvent" name="createEvent"/>
+	</wsdl:message>
+	<wsdl:message name="createEventResponse">
+		<wsdl:part element="serviceModel:createEventResponse" name="createEventResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="fetchEvent">
+		<wsdl:part element="serviceModel:fetchEvent" name="fetchEvent"/>
+	</wsdl:message>
+	<wsdl:message name="fetchEventResponse">
+		<wsdl:part element="serviceModel:fetchEventResponse" name="fetchEventResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="getSessionStartTime">
+		<wsdl:part element="serviceModel:getSessionStartTime" name="getSessionStartTime"/>
+	</wsdl:message>
+	<wsdl:message name="getSessionStartTimeResponse">
+		<wsdl:part element="serviceModel:getSessionStartTimeResponse" name="getSessionStartTimeResponse"/>
+	</wsdl:message>
+
+	<wsdl:binding name="SummonsServiceSOAPBinding" type="SummonsServiceWS">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listInvitations">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="createEvent">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="fetchEvent">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="listEvents">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getSessionStartTime">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:portType name="SummonsServiceWS">
+		<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+			<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+		</jaxws:bindings>
+		<wsdl:operation name="listInvitations">
+			<wsdl:input message="listInvitations"/>
+			<wsdl:output message="listInvitationsResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="listEvents">
+			<wsdl:input message="listEvents"/>
+			<wsdl:output message="listEventsResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="createEvent">
+			<wsdl:input message="createEvent"/>
+			<wsdl:output message="createEventResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="fetchEvent">
+			<wsdl:input message="fetchEvent"/>
+			<wsdl:output message="fetchEventResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="getSessionStartTime">
+			<wsdl:input message="getSessionStartTime"/>
+			<wsdl:output message="getSessionStartTimeResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:service name="SummonsService">
+		<wsdl:port binding="SummonsServiceSOAPBinding" name="SummonsService">
+			<soap:address location="http://localhost:9080/summons-service/SummonsService"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>
