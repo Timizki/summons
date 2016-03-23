@@ -13,7 +13,7 @@
     	<module>summons-ear</module>
   </modules>
   <properties>
-	<sonar.host.url>http://10.0.0.30:9000</sonar.host.url>
+	<sonar.host.url>http://192.168.0.10</sonar.host.url>
   </properties>
   <build>
   <plugins>
