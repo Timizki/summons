@@ -12,6 +12,9 @@
     	<module>summons-ws-client</module>
     	<module>summons-ear</module>
   </modules>
+  <properties>
+	<sonar.host.url>http://10.0.0.30:9000</sonar.host.url>
+  </properties>
   <build>
   <plugins>
   	<plugin>
@@ -22,6 +25,11 @@
   			<source>1.7</source>
   		</configuration>
   	</plugin>
+	<plugin>
+		<groupId>org.sonarsource.scanner.maven</groupId>
+		<artifactId>sonar-maven-plugin</artifactId>
+		<version>3.0.1</version>
+	</plugin>
   </plugins>
   </build>
 </project>
