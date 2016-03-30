@@ -13,30 +13,29 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 @Entity
-@SequenceGenerator(name="place_seq", sequenceName="place_seq")
+@SequenceGenerator(name = "place_seq", sequenceName = "place_seq")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name="Place", propOrder = {
-		"id",
-		"name",
-		"address",
-		"drivingInstructions"
-})
+@XmlType(name = "Place", propOrder = { "id", "name", "address", "drivingInstructions", "website" })
 public class Place {
 	@Id
 	@XmlElement
-	@GeneratedValue(generator="place_seq", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "place_seq", strategy = GenerationType.SEQUENCE)
 	private long id;
 
 	@Column
-	@XmlElement(required=true)
+	@XmlElement(required = true)
 	protected String name;
 
 	@OneToOne
-	@XmlElement(required=true)
+	@XmlElement(required = true)
 	protected Address address;
 	@Column
 	@XmlElement
 	protected String drivingInstructions;
+
+	@Column
+	@XmlElement
+	protected String website;
 
 	public long getId() {
 		return id;
@@ -68,5 +67,13 @@ public class Place {
 
 	public void setDrivingInstructions(String drivingInstructions) {
 		this.drivingInstructions = drivingInstructions;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 }

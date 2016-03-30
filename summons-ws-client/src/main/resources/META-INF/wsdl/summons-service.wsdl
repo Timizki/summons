@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<wsdl:definitions xmlns="http://vksn.io/summons/summonsService/" xmlns:serviceModel="http://vksn.io/summons/summonsService/model/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://vksn.io/summons/summonsService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vksn.io/summons/summonsService/">
-
+<wsdl:definitions xmlns="http://vksn.io/summons/summonsService/" xmlns:model="http://vksn.io/summons/entity/" xmlns:serviceModel="http://vksn.io/summons/summonsService/model/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://vksn.io/summons/summonsService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vksn.io/summons/summonsService/">
+	
 	<wsdl:types>
 		<xs:schema>
 			<xs:import namespace="http://vksn.io/summons/summonsService/model/" schemaLocation="summons-service-model.xsd"/>
+			
 		</xs:schema>
 	</wsdl:types>
 
@@ -12,6 +13,13 @@
 	</wsdl:message>
 	<wsdl:message name="listInvitationsResponse">
 		<wsdl:part element="serviceModel:listInvitationsResponse" name="listInvitationsResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="participate">
+		<wsdl:part element="serviceModel:participate" name="participate"/>
+	</wsdl:message>
+	<wsdl:message name="participateResponse">
+		<wsdl:part element="serviceModel:participateResponse" name="participateResponse"/>
 	</wsdl:message>
 
 	<wsdl:message name="listEvents">
@@ -33,6 +41,13 @@
 	</wsdl:message>
 	<wsdl:message name="fetchEventResponse">
 		<wsdl:part element="serviceModel:fetchEventResponse" name="fetchEventResponse"/>
+	</wsdl:message>
+	
+	<wsdl:message name="login">
+		<wsdl:part element="serviceModel:login" name="login"/>
+	</wsdl:message>
+	<wsdl:message name="loginResponse">
+		<wsdl:part element="serviceModel:loginResponse" name="loginResponse"/>
 	</wsdl:message>
 
 	<wsdl:message name="getSessionStartTime">
@@ -84,6 +99,22 @@
 				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
+		<wsdl:operation name="login">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="participate">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
 	</wsdl:binding>
 
 	<wsdl:portType name="SummonsServiceWS">
@@ -93,6 +124,10 @@
 		<wsdl:operation name="listInvitations">
 			<wsdl:input message="listInvitations"/>
 			<wsdl:output message="listInvitationsResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="participate">
+			<wsdl:input message="participate"/>
+			<wsdl:output message="participateResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="listEvents">
 			<wsdl:input message="listEvents"/>
@@ -105,6 +140,10 @@
 		<wsdl:operation name="fetchEvent">
 			<wsdl:input message="fetchEvent"/>
 			<wsdl:output message="fetchEventResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="login">
+			<wsdl:input message="login"/>
+			<wsdl:output message="loginResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getSessionStartTime">
 			<wsdl:input message="getSessionStartTime"/>

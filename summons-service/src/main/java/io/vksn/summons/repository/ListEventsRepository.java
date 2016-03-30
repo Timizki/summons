@@ -1,7 +1,6 @@
 package io.vksn.summons.repository;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.annotation.sql.DataSourceDefinition;
@@ -22,6 +21,7 @@ import io.vksn.summons.entity.Event;
  @DataSourceDefinition(className = "javax.sql.XADataSource", name =
  "jdbc/notInse", user = "sa", password = "password", url =
  "jdbc:h2:~/summons10.db;AUTO_SERVER=TRUE")
+//SECURITY_WEAKNESS: weakness-15: EJB bean is not serializable 
 public class ListEventsRepository {
 
 	@PersistenceContext(unitName = "summonsPU")

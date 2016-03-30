@@ -7,13 +7,41 @@
 	<xs:element name="listInvitations" type="xs:long" />
 	<xs:element name="fetchEvent" type="xs:long" />
 	<xs:element name="fetchEventResponse" type="model:Event" />
-
+	<xs:element name="login">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="username" type="xs:string" />
+				<xs:element name="password" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="loginResponse" >
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="roles" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="participate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="invitation" type="model:Invitation" />	
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="participateResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="invitation" type="model:Invitation" />	
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="getSessionStartTime">
 		<xs:complexType>
 			<xs:sequence />
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="getSessionStartTimeResponse" type="xs:dateTime"/>
+	<xs:element name="getSessionStartTimeResponse" type="xs:dateTime" />
 
 	<xs:element name="listEvents">
 		<xs:complexType>

@@ -25,32 +25,11 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
-<!-- 	<login-config> -->
-<!-- 		<auth-method>FORM</auth-method> -->
-<!-- 		<realm-name>BasicRealm</realm-name> -->
-<!-- 		<form-login-config> -->
-<!-- 			<form-login-page>/login.html</form-login-page> -->
-<!-- 			<form-error-page>/login.html</form-error-page> -->
-<!-- 		</form-login-config> -->
-<!-- 	</login-config> -->
 
 	<!-- Welcome files -->
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-<!-- 	<security-constraint> -->
-<!-- 		<web-resource-collection> -->
-<!-- 			<web-resource-name>summons</web-resource-name> -->
-<!-- 			<url-pattern>/*</url-pattern> -->
-<!-- 		</web-resource-collection> -->
-<!-- 		<auth-constraint> -->
-<!-- 			<role-name>PARTICIPANT</role-name> -->
-<!-- 		</auth-constraint> -->
-<!-- 	</security-constraint> -->
-
-<!-- 	<security-role> -->
-<!-- 		<role-name>PARTICIPANT</role-name> -->
-<!-- 	</security-role> -->
 
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>

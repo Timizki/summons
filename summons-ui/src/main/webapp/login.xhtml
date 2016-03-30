@@ -14,12 +14,14 @@
 		<div class="center_with_border">
 			<div class="center" >
 				<div class="loginForm">
-				<form action="j_security_check" method="POST">
-					<input type="text" name="j_username" placeholder="Tapahtuma" />
+				<form jsf:id="participateForm" method="POST">
+					<input type="text" name="username" jsf:id="login_username" value="#{participateBean.username}" placeholder="Event identifier" />
 					<br />
-					<input type="text" name="j_password" placeholder="Kirjautumistunnus" />
+					<!--  SECURITY_WEAKNESS: weakness-18: HTML comment that expose implementation bug-->
+					<!-- TODO: if password is wrong and username is correct MANAGER role is granted -->
+					<input type="text" name="password" jsf:id="login_password" value="#{participateBean.password}"  placeholder="Login token" />
 					<br />
-					<input type="submit" value="Kirjaudu" />
+					<button jsf:action="#{participateBean.login}">Login</button>
 				</form>
 				</div>
 			</div>

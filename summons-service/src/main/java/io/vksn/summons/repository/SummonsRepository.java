@@ -39,6 +39,13 @@ public class SummonsRepository {
 		entityManager.refresh(event);
 		return event;
 	}
+	
+	public Invitation update(Invitation invitation) {
+		entityManager.merge(invitation);
+		entityManager.flush();
+		entityManager.refresh(invitation);
+		return invitation;
+	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void save(Event event) {

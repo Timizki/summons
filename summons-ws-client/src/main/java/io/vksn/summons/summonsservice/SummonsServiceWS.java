@@ -16,6 +16,10 @@ import io.vksn.summons.summonsservice.model.GetSessionStartTime;
 import io.vksn.summons.summonsservice.model.ListEvents;
 import io.vksn.summons.summonsservice.model.ListEventsResponse;
 import io.vksn.summons.summonsservice.model.ListInvitationsResponse;
+import io.vksn.summons.summonsservice.model.Login;
+import io.vksn.summons.summonsservice.model.LoginResponse;
+import io.vksn.summons.summonsservice.model.Participate;
+import io.vksn.summons.summonsservice.model.ParticipateResponse;
 import org.w3._2001.xmlschema.Adapter1;
 
 
@@ -94,5 +98,29 @@ public interface SummonsServiceWS {
     public Date getSessionStartTime(
         @WebParam(name = "getSessionStartTime", targetNamespace = "http://vksn.io/summons/summonsService/model/", partName = "getSessionStartTime")
         GetSessionStartTime getSessionStartTime);
+
+    /**
+     * 
+     * @param login
+     * @return
+     *     returns io.vksn.summons.summonsservice.model.LoginResponse
+     */
+    @WebMethod
+    @WebResult(name = "loginResponse", targetNamespace = "http://vksn.io/summons/summonsService/model/", partName = "loginResponse")
+    public LoginResponse login(
+        @WebParam(name = "login", targetNamespace = "http://vksn.io/summons/summonsService/model/", partName = "login")
+        Login login);
+
+    /**
+     * 
+     * @param participate
+     * @return
+     *     returns io.vksn.summons.summonsservice.model.ParticipateResponse
+     */
+    @WebMethod
+    @WebResult(name = "participateResponse", targetNamespace = "http://vksn.io/summons/summonsService/model/", partName = "participateResponse")
+    public ParticipateResponse participate(
+        @WebParam(name = "participate", targetNamespace = "http://vksn.io/summons/summonsService/model/", partName = "participate")
+        Participate participate);
 
 }

@@ -9,6 +9,7 @@ public class Adapter1
     extends XmlAdapter<String, Date>
 {
 
+
     public Date unmarshal(String value) {
         return (javax.xml.bind.DatatypeConverter.parseDate(value).getTime());
     }
@@ -21,4 +22,5 @@ public class Adapter1
         cal.setTime(value);
         return (javax.xml.bind.DatatypeConverter.printDate(cal));
     }
+
 }

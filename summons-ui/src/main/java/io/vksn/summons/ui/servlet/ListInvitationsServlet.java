@@ -22,9 +22,10 @@ public class ListInvitationsServlet extends HttpServlet {
 	private SummonsServiceWS service;
     
     @Override
+    //SECURITY_WEAKNESS: weakness-13: Long.parseLong can throw NumberFormatException which is not catched
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
+    	//SECURITY_WEAKNESS: weakness-14: Database identifier is passed through GET parameter 
     	String event = request.getParameter("eventId");
     	if(event != null) {
     		long eventId = Long.parseLong(event);

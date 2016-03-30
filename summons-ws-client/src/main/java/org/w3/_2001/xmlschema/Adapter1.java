@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 public class Adapter1
     extends XmlAdapter<String, Date>
 {
+
+
     public Date unmarshal(String value) {
         return (javax.xml.bind.DatatypeConverter.parseDate(value).getTime());
     }

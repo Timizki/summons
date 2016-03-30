@@ -12,14 +12,18 @@
 			<f:viewAction action="#{viewEvent.loadEvent}" />
 		</f:metadata>
 		<div class="wrapper">
-			<label for="event.sign">Tapahtuman nimi</label>
+			<label for="event.name">Event name</label>
 			<p id="event.name">#{viewEvent.event.name}</p>
-			<label for="event.sign">Tapahtuman tunnus</label>
+			<label for="event.sign">Event identifier</label>
 			<p id="event.sign">#{viewEvent.event.sign}</p>
-			<label for="event.date">Tapahtuman päivämäärä</label>
+			<label for="event.date">Event date</label>
 			<h:outputText id="event_date" value="#{viewEvent.event.date}">
 				<f:convertDateTime pattern="dd.MM.yyyy" />
 			</h:outputText>
+			<label for="event.name">Event place</label>
+			<p id="event.name">#{viewEvent.event.place.name}</p>
+			<label for="event.name">Event place website</label>
+			<p id="event.name"><a href="/summons-ui/redirect?to=#{viewEvent.event.place.website}">#{viewEvent.event.place.website}</a></p>
 		</div>
 	</ui:define>
 </ui:composition>

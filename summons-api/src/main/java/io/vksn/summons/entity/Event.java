@@ -23,6 +23,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import io.vksn.summons.constraints.EventIdentifierConstraint;
+
 @Entity
 @SequenceGenerator(name="eventSEQ", sequenceName="event_seq")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -55,6 +57,7 @@ public class Event {
 	
 	@Column(unique=true)
 	@XmlElement
+	@EventIdentifierConstraint
 	protected String sign;
 
 	@Column
@@ -91,7 +94,8 @@ public class Event {
 		this.id = id;
 	}
 
-	public String getSign() {
+	//SECURITY_WEAKNESS: weakness_26: Use of synchronization primitives
+	public synchronized String getSign() {
 		return sign;
 	}
 	

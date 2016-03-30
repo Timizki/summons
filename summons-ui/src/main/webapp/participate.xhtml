@@ -14,16 +14,16 @@
 		<div class="center_with_border">
 			<div class="center">
 				<div class="content">
-					<p>Olet ilmoittamassa kutsun
-						<b>#{applicationStateBean.current.invitationCode}</b> henkilöitä</p>
+					<p>You are leaving response for invitation 
+						<b>#{participateBean.invitation.token}</b> that contains persons</p>
 					<form jsf:id="participateForm">
 						<table class="center">
 							<tr>
-								<td>Nimi</td>
+								<td>Name</td>
 								<td>Status</td>
 							</tr>
 							<ui:repeat var="person"
-								value="#{applicationStateBean.current.persons}">
+								value="#{participateBean.invitation.persons}">
 								<tr>
 									<td>#{person.firstname} #{person.lastname}</td>
 									<td><h:selectOneMenu value="#{person.participating}">
@@ -32,7 +32,7 @@
 								</tr>
 							</ui:repeat>
 						</table>
-						<button jsf:action="#{participateBean.save}">Tallenna</button>
+						<button jsf:action="#{participateBean.save}">Send responses</button>
 					</form>
 				</div>
 			</div>

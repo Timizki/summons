@@ -11,30 +11,41 @@
 			<h:messages style="color:red;margin:8px;" />
 			<p>Perustiedot</p>
 			<div>
-				<span class="label"> <label for="input.event.name">Tapahtuman
-						nimi</label>
-				</span><input type="text" id="input.event.name" jsf:id="event_name"
+				<span class="label"> 
+					<label for="input.event.name">Event name</label>
+				</span>
+				<input type="text" id="input.event.name" jsf:id="event_name"
 					jsf:value="#{createEvent.event.name}" />
 			</div>
 			<div>
-				<span class="label"><label for="input.event.sign">Tapahtuman
-						tunnus</label> </span><input type="text" id="input.event.sign"
+				<span class="label"><label for="input.event.sign">Event identifier</label> 
+				</span><input type="text" id="input.event.sign"
 					jsf:id="event_sing" jsf:value="#{createEvent.event.sign}" />
 			</div>
 			<div>
-				<span class="label"> <label for="event.date">Tapahtuman
-						päivämäärä</label>
+				<span class="label"> <label for="event.date">Event date</label>
 				</span><input type="text" id="input.event.date" jsf:id="event_date"
 					jsf:value="#{createEvent.event.date}">
 				<f:convertDateTime pattern="dd.MM.yyyy" />
 				</input>
 			</div>
 			<div>
+				<p>Events place</p>
+				<span class="label">
+					<label for="input.event.place.name">Place name</label> 
+				</span>
+				<input type="text" id="input.event.place.name"
+					jsf:id="event_place_name" jsf:value="#{createEvent.event.place.name}" />
+				<span class="label">
+					<label for="input.event.place.website">Place's website</label> 
+				</span>
+				<input type="text" id="input.event.place.website"
+					jsf:id="event_place_website" jsf:value="#{createEvent.event.place.website}" />
+			</div>
+			<div>
 				<button id="button.event.next"
-					jsf:action="#{createEvent.moveToInvitations}">Lisää
-					kutsuja</button>
-				<button id="button.event.save" jsf:action="#{createEvent.save}">Tallenna
-					tapahtuma</button>
+					jsf:action="#{createEvent.moveToInvitations}">Add invitations</button>
+				<button id="button.event.save" jsf:action="#{createEvent.save}">Save event</button>
 			</div>
 		</form>
 	</ui:define>

@@ -42,19 +42,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ListEventsResponse }
+     * Create an instance of {@link LoginResponse }
      * 
      */
-    public ListEventsResponse createListEventsResponse() {
-        return new ListEventsResponse();
+    public LoginResponse createLoginResponse() {
+        return new LoginResponse();
     }
 
     /**
-     * Create an instance of {@link ListInvitationsResponse }
+     * Create an instance of {@link Participate }
      * 
      */
-    public ListInvitationsResponse createListInvitationsResponse() {
-        return new ListInvitationsResponse();
+    public Participate createParticipate() {
+        return new Participate();
     }
 
     /**
@@ -74,19 +74,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CreateEvent }
-     * 
-     */
-    public CreateEvent createCreateEvent() {
-        return new CreateEvent();
-    }
-
-    /**
      * Create an instance of {@link AddInvitation }
      * 
      */
     public AddInvitation createAddInvitation() {
         return new AddInvitation();
+    }
+
+    /**
+     * Create an instance of {@link Login }
+     * 
+     */
+    public Login createLogin() {
+        return new Login();
+    }
+
+    /**
+     * Create an instance of {@link ListEventsResponse }
+     * 
+     */
+    public ListEventsResponse createListEventsResponse() {
+        return new ListEventsResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListInvitationsResponse }
+     * 
+     */
+    public ListInvitationsResponse createListInvitationsResponse() {
+        return new ListInvitationsResponse();
+    }
+
+    /**
+     * Create an instance of {@link ParticipateResponse }
+     * 
+     */
+    public ParticipateResponse createParticipateResponse() {
+        return new ParticipateResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateEvent }
+     * 
+     */
+    public CreateEvent createCreateEvent() {
+        return new CreateEvent();
     }
 
     /**

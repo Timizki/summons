@@ -4,6 +4,8 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:template>
 	<jsp:body>
+		<%-- SECURITY_WEAKNESS: weakness-19:  HTML comment in JSP will expose implementation bug --%>
+		<!-- ListInvitation Servlet does not validate event identifier from GET param!! -->
     	<c:forEach var="invitation" items="${invitations}">
          	<p>Password: ${invitation.token}</p>
          	<p>

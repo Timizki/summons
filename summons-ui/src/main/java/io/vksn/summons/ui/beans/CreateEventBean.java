@@ -15,6 +15,7 @@ import javax.xml.ws.WebServiceRef;
 import io.vksn.summons.entity.Event;
 import io.vksn.summons.entity.Invitation;
 import io.vksn.summons.entity.Person;
+import io.vksn.summons.entity.Place;
 import io.vksn.summons.summonsservice.SummonsService;
 import io.vksn.summons.summonsservice.SummonsServiceWS;
 import io.vksn.summons.summonsservice.model.CreateEvent;
@@ -45,6 +46,13 @@ public class CreateEventBean implements Serializable {
 	
 	public void setEvent(Event event) {
 		this.event = event;
+	}
+	
+	public Place getPlace() {
+		if(this.event.getChoosedPlace() == null) {
+			this.event.setChoosedPlace(new Place());
+		}
+		return this.event.getChoosedPlace();
 	}
 	
 	public void addInvitation(AjaxBehaviorEvent event) {
